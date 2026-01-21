@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   CheckCircle, 
   Clock, 
@@ -8,11 +8,10 @@ import {
   Star, 
   ChevronDown, 
   ArrowRight, 
-  ShieldCheck, 
-  Heart 
+  ShieldCheck 
 } from 'lucide-react';
-import { Button } from './components/Button';
-import { Feature, Testimonial, FAQ } from './types';
+import { Button } from './components/Button.tsx';
+import { Feature, Testimonial, FAQ } from './types.ts';
 
 const App: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -81,14 +80,12 @@ const App: React.FC = () => {
   ];
 
   const handleCtaClick = () => {
-    // In a real scenario, this would redirect to checkout
-    console.log("Redirecting to checkout...");
     window.location.href = "#checkout";
   };
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 1. HERO SECTION - DARK BACKGROUND */}
+      {/* 1. HERO SECTION */}
       <section className="bg-slate-900 text-white min-h-[90vh] flex items-center justify-center relative overflow-hidden px-4 py-20 lg:py-0">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 left-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
@@ -116,7 +113,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. THE PROBLEM - WHITE BACKGROUND */}
+      {/* 2. THE PROBLEM */}
       <section className="bg-white py-24 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
@@ -135,7 +132,7 @@ const App: React.FC = () => {
                 </p>
               </div>
               <p className="text-slate-600 leading-relaxed">
-                O improviso gera cansaço mental, estresse e, muitas vezes, as crianças acabam não aproveitando o tempo de forma pedagógica.
+                O improviso gera cansaço mental, estresse e as crianças acabam não aproveitando o tempo de forma pedagógica.
               </p>
             </div>
             <div className="space-y-6">
@@ -146,14 +143,14 @@ const App: React.FC = () => {
                 </p>
               </div>
               <p className="text-slate-600 leading-relaxed">
-                Muitas ideias da internet exigem materiais caros ou preparações complexas que não cabem na realidade de uma sala de aula de verdade.
+                Muitas ideias da internet exigem materiais caros ou preparações complexas que não cabem na realidade da sala.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. THE SOLUTION - ACCENT (SLATE 50) BACKGROUND */}
+      {/* 3. THE SOLUTION */}
       <section className="bg-slate-50 py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -171,7 +168,7 @@ const App: React.FC = () => {
                 Apresentamos o <span className="text-indigo-600">Repertório Definitivo</span> de Jogos Educativos
               </h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Desenvolvemos um método focado na <strong>praticidade máxima</strong>. Esqueça as preparações intermináveis. Tenha acesso a um guia estruturado com atividades que geram engajamento imediato.
+                Desenvolvemos um método focado na praticidade máxima. Esqueça as preparações intermináveis.
               </p>
               
               <ul className="space-y-4 mb-10">
@@ -196,13 +193,13 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. FEATURES GRID - WHITE BACKGROUND */}
+      {/* 4. FEATURES GRID */}
       <section className="bg-white py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Feito por quem entende o chão da sala</h2>
             <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-              Nosso foco é dar a você mais tempo de qualidade com os alunos e menos tempo preocupada com a próxima atividade.
+              Nosso foco é dar a você mais tempo de qualidade com os alunos.
             </p>
           </div>
           
@@ -220,7 +217,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. TESTIMONIALS - DARK BACKGROUND */}
+      {/* 5. TESTIMONIALS */}
       <section className="bg-slate-900 py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
@@ -249,7 +246,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. PRICING & OFFER - WHITE BACKGROUND */}
+      {/* 6. PRICING & OFFER */}
       <section id="checkout" className="bg-white py-24 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-slate-50 rounded-[3rem] p-8 md:p-16 border-2 border-indigo-600 shadow-2xl relative overflow-hidden">
@@ -298,7 +295,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. GUARANTEE & FAQ - SLATE 50 BACKGROUND */}
+      {/* 7. GUARANTEE & FAQ */}
       <section className="bg-slate-50 py-24 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12 mb-24 bg-white p-10 rounded-3xl shadow-sm">
@@ -310,7 +307,7 @@ const App: React.FC = () => {
             <div>
               <h3 className="text-3xl font-bold text-slate-900 mb-4">Garantia Blindada de 7 Dias</h3>
               <p className="text-slate-600 text-lg leading-relaxed">
-                Nós confiamos tanto na qualidade do nosso material que te damos 7 dias de teste. Se por qualquer motivo você não se sentir 100% satisfeita, basta nos enviar um e-mail e devolvemos cada centavo. O risco é todo nosso.
+                Nós confiamos tanto na qualidade do nosso material que te damos 7 dias de teste.
               </p>
             </div>
           </div>
@@ -338,20 +335,13 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. FOOTER - DARK BACKGROUND */}
+      {/* 8. FOOTER */}
       <footer className="bg-slate-900 text-slate-400 py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 text-white mb-8">
             <Gamepad2 className="w-8 h-8 text-indigo-500" />
             <span className="text-2xl font-black tracking-tighter">REPERTÓRIO INFANTIL</span>
           </div>
-          
-          <p className="max-w-md mx-auto mb-10 font-light italic">
-            "A criança que brinca é uma criança que aprende a viver."
-          </p>
-          
-          <div className="w-full h-px bg-slate-800 mb-10"></div>
-          
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
             <p>&copy; 2024 Repertório Infantil. Todos os direitos reservados.</p>
             <div className="flex gap-8">
@@ -360,9 +350,6 @@ const App: React.FC = () => {
               <a href="#" className="hover:text-white transition-colors">Contato</a>
             </div>
           </div>
-          <p className="mt-8 text-xs text-slate-600 leading-relaxed max-w-4xl mx-auto">
-            Este produto não garante resultados milagrosos. O sucesso depende da aplicação prática e do contexto de cada educador. Todas as estratégias apresentadas são baseadas em experiências reais de sala de aula.
-          </p>
         </div>
       </footer>
       
